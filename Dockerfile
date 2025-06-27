@@ -1,17 +1,20 @@
-FROM python:3.10-slim                        
 # Use slim Python 3.10 image as the base
+FROM python:3.10-slim                        
 
-WORKDIR /app                                 
 # Set working directory inside the container to /app
+WORKDIR /app                                 
 
-COPY requirements.txt .                      
 # Copy requirements.txt to the working directory
-RUN pip install --no-cache-dir -r requirements.txt 
+COPY requirements.txt .       
+
 # Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt 
 
-COPY ./app ./app                             
 # Copy the app directory into the container
-COPY .env .                                  
-# Copy the .env file into the container
+COPY ./app ./app                             
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"] # Start the FastAPI
+# Copy the .env file into the container (optional, won't fail if missing)
+COPY .env* .                                  
+
+# Start the FastAPI app
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
