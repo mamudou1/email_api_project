@@ -9,17 +9,27 @@ class EmailRequest(BaseModel):                       # Define a Pydantic model f
     subject: str                                     # Email subject
     body: str                                        # Email body content
 
-@app.post("/send")                                   # Define POST endpoint at /send for sending emails
-def send_email_endpoint(email: EmailRequest):        # Renamed function to avoid shadowing
+@app.post("/send")                                   
+def send_email_endpoint(email: EmailRequest):
+    """
+    Endpoint to send an email.
+    Receives email details in the request body and sends the email using the send_email utility.
+    Returns a success message or raises an HTTP 500 error on failure.
+    """
     try:
-        result = send_email(email.to, email.subject, email.body) # Call utility to send email
+        result = send_email(email.to, email.subject, email.body)
         return result
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e)) # Return HTTP 500 error with exception details
+        raise HTTPException(status_code=500, detail=str(e))
 
-@app.get("/inbox")                                   # Define GET endpoint at /inbox for fetching emails
-def inbox():                                         # Function to handle fetching emails
+@app.get("/inbox")
+def inbox():
+    """
+    Endpoint to fetch emails from the inbox.
+    Returns a list of recent emails using the fetch_emails utility.
+    Raises an HTTP 500 error on failure.
+    """
     try:
-        return fetch_emails()                        # Call utility to fetch emails and return them
-    except Exception as e:                           # Catch any exceptions
-        raise HTTPException(status_code=500, detail=str(e)) # Return HTTP 500 error
+        return fetch_emails()
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))

@@ -6,10 +6,10 @@ This project is a lightweight REST API for sending, receiving, and viewing email
 
 ##  Features
 
-- ✅ Send plain text emails via SMTP
-- ✅ Fetch and view recent emails via IMAP
-- ✅ API Documentation via Swagger UI
-- ✅ Easy deployment with Docker
+- Send plain text emails via SMTP
+- Fetch and view recent emails via IMAP
+- API Documentation via Swagger UI
+- Easy deployment with Docker
 
 ---
 
