@@ -1,6 +1,6 @@
 # Dockerized Email API with FastAPI
 
-This project is a lightweight REST API for sending, receiving, and viewing email content. It's built using **FastAPI**, containerized using **Docker**, and can be deployed using **Docker Hub** or any container-friendly platform like Render or Railway.
+This project is a lightweight REST API for sending, receiving, and viewing email content. It's built using **FastAPI**, containerized using **Docker**, and can be deployed using **Docker Hub**.
 
 ---
 
@@ -8,7 +8,6 @@ This project is a lightweight REST API for sending, receiving, and viewing email
 
 - Send plain text emails via SMTP
 - Fetch and view recent emails via IMAP
-- API Documentation via Swagger UI
 - Easy deployment with Docker
 
 ---
@@ -21,7 +20,5 @@ This project is a lightweight REST API for sending, receiving, and viewing email
 - **Docker** – Containerization
 - **.env** – Secure environment config
 
----
 
-## Project Structure
 
