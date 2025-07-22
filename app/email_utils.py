@@ -65,3 +65,4 @@ def fetch_emails(limit=5):
             })
 
         return emails
+    
